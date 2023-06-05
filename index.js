@@ -1,7 +1,44 @@
+let header = document.getElementById("header");
+let content = document.getElementById("content");
+let footer = document.getElementById("footer");
+
+let headerdata = () => {
+  return header.innerHTML = `
+  <div class="container">
+    <h1 class="logo">TODO APP</h1>
+  </div>
+  `;
+};
+headerdata();
+
+let contentdata = () => {
+  return (content.innerHTML = `
+  <div class="container">
+    <div id="todo" class="todo"></div>
+  </div>
+  `);
+};
+contentdata();
+let footerdata = () => {
+  return (footer.innerHTML = `
+  <div class="container">
+    <div class="input">
+      <input id="input" type="text" />
+    </div>
+    <div class="buttons">
+      <button id="add" class="add">Add Todo</button>
+      <button id="clear" class="clear">Clear Completed</button>
+    </div>
+    <span id="left">left</span>
+  </div>
+  `);
+};
+footerdata();
 let add = document.getElementById("add");
 let clear = document.getElementById("clear");
 let id = 0;
 let todoss = [];
+// let todos;
 
 let check = `<input id="checkid" type="checkbox"> `;
 
@@ -14,13 +51,18 @@ add.addEventListener("click", () => {
   // Try
   // let todocontent = todo.innerHTML = inputTodo
 
-  let todos = (todo.innerHTML += check + id + ". " + inputTodo + "<br>");
-  localStorage.setItem("data", todo);
-
+  todo.innerHTML += check + id + ". " + inputTodo + "<br>";
   todoss.push(id, inputTodo);
-  // console.log(todoss);
+  localStorage.setItem("data", content);
+
+  console.log(todo);
   return todoss;
 });
+
+let todos = localStorage.getItem("data");
+
+todo.innerHTML = todos;
+console.log(todos);
 
 // Clear Todo List
 clear.addEventListener("click", () => {
