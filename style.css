@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(233, 233, 233);
+}
+
+/* Header Style */
+.header .container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.header .container .logo {
+  background-color: #242430;
+  color: #ffffffda;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Content Todo Style */
+.content .container{
+  margin: 65px 30px 150px 30px ;
+}
+.content .container .todo{
+font-size: 25px;
+padding-bottom: 10px;
+}
+
+/* Footer Style */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer .container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  background-color: #242430;
+  padding: 20px 20px 20px 20px;
+  overflow: hidden;
+  color: #ffffffda;
+  position: relative;
+}
+
+.footer .container .input{
+    padding-right: 10px;
+}
+
+.footer .container .input input {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  font-size: large;
+  margin-right: 200px;
+  background-color: #ffffffda;
+}
+
+.footer .container .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+}
+
+.footer .container .buttons .add{
+    color: #ffffffda;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 128, 0, 0.596);
+    font-size: larger;
+    padding: 5px;
+    cursor: pointer;;
+}
+
+.footer .container .buttons .clear{
+    color: #ffffffda;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.384);
+    font-size: larger;
+    padding: 5px;
+    cursor: pointer;
+}
