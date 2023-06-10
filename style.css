@@ -18,12 +18,33 @@ body {
 }
 
 /* Content Todo Style */
-.content .container{
-  margin: 65px 30px 150px 30px ;
+.content .container {
+  margin: 65px 30px 150px 30px;
 }
-.content .container .todo{
-font-size: 25px;
-padding-bottom: 10px;
+.content .container .todo-list {
+  font-size: 25px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #bdbdbd;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.content .container .todo-list input{
+  align-items:  flex-start;
+}
+
+.content .container .todo-list .numb {
+  margin-left: 10px;
+}
+
+.content .container .todo-list .id::after {
+  content: ".";
+}
+
+.content .container .todo-list .todo {
+  margin-left: 10px;
 }
 
 /* Footer Style */
@@ -44,8 +65,8 @@ padding-bottom: 10px;
   position: relative;
 }
 
-.footer .container .input{
-    padding-right: 10px;
+.footer .container .input {
+  padding-right: 10px;
 }
 
 .footer .container .input input {
@@ -59,27 +80,27 @@ padding-bottom: 10px;
 }
 
 .footer .container .buttons {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 10px 0px;
 }
 
-.footer .container .buttons .add{
-    color: #ffffffda;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(0, 128, 0, 0.596);
-    font-size: larger;
-    padding: 5px;
-    cursor: pointer;;
+.footer .container .buttons .add {
+  color: #ffffffda;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(0, 128, 0, 0.596);
+  font-size: larger;
+  padding: 5px;
+  cursor: pointer;
 }
 
-.footer .container .buttons .clear{
-    color: #ffffffda;
-    border: none;
-    border-radius: 5px;
-    background-color: rgba(255, 0, 0, 0.384);
-    font-size: larger;
-    padding: 5px;
-    cursor: pointer;
+.footer .container .buttons .clear {
+  color: #ffffffda;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.384);
+  font-size: larger;
+  padding: 5px;
+  cursor: pointer;
 }
