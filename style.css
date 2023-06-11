@@ -31,12 +31,15 @@ body {
   border-radius: 5px;
 }
 
-.content .container .todo-list input{
-  align-items:  flex-start;
+.content .container .todo-list input {
+  /* align-items:  flex-start; */
+  width: 15px;
+  height: 15px;
 }
 
 .content .container .todo-list .numb {
   margin-left: 10px;
+  display: none;
 }
 
 .content .container .todo-list .id::after {

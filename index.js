@@ -17,7 +17,7 @@ let footerdata = () => {
   return (footer.innerHTML = `
   <div class="container">
     <div class="input">
-      <input id="input" type="text" />
+      <input id="input" onkeypress="enterbutton(event)" type="text"  />
     </div>
     <div class="buttons">
       <button id="add" onclick="addTodo()" class="add">Add Todo</button>
@@ -54,132 +54,35 @@ let addTodo = () => {
     todo.className = "todo";
     todo.innerHTML = input.value;
     todoList.appendChild(todo);
-
-    input.value = "";
-    // check.id = incrimentId;
-    // console.log(check);
-    return check;
+    check.name = incrimentId;
+    console.log(check);
   }
+  input.value = "";
+  saveData();
 };
 
-// 
+let enterbutton = (event) => {
+  if (event.keyCode === 13) {
+    addTodo();
+  }
+  false;
+};
 
-// console.log(checkbox);
+let clearTodo = () => {
+  let check = document.querySelectorAll(".checkbox");
+  for (i in check) {
+    if (check[i].checked) {
+      check[i].parentElement.remove();
+    }
+  }
+  saveData();
+};
 
-// let clearTodo = () => {
-//   let checkid = document.getElementById("input.checkbox");
-//   let check = document.getElementsByClassName("checkbox");
+let saveData = () => {
+  localStorage.setItem("data", content.innerHTML);
+};
 
-//   // checkbox.checked === true;
-//   // checkbox.id = "checkbox";
-//   if (check.checked === true) {
-//     console.log(check);
-//   }
-// console.log(check);
-// };
-
-// Content
-
-// let checkcontent = `<input type="checkbox" id="checkid"> `;
-
-// let todoList = [
-//   {
-//     id: 1,
-//     check: checkcontent,
-//     todo: "Coding",
-//   },
-//   {
-//     id: 2,
-//     check: checkcontent,
-//     todo: "Cooking",
-//   },
-// ];
-
-// let contentdata = () => {
-//   return (content.innerHTML = todoList
-//     .map((x) => {
-//       let { id, check, todo } = x;
-//       return `
-//       <div id="todo" class="todo"><span id="checkids">${check}</span><span>${id}.</span> ${todo}</div>
-//     `;
-//     })
-//     .join(""));
-// };
-// let addtodo = contentdata();
-// let checkid = document.getElementById("checkids");
-// console.log(checkid);
-
-// Incriment the left Todos
-// var addTodo = () => {};
-
-// Check Boxes
-// let checkBoxes = () => {
-//   if (checkid.checked === true) {
-//     console.log("Checkbox is checked");
-//   } else {
-//     console.log("Checkbox is not checked");
-//   }
-// };
-
-// Decriment the left Todos
-// let clearTodo = () => {
-//   if (checkid.checked === true) {
-//     console.log(todoList[0].check);
-//   }
-//   console.log("clear todo");
-// };
-
-// Update the left Todos
-// let update = () => {};
-
-// let add = document.getElementById("add");
-// let clear = document.getElementById("clear");
-// let id = 0;
-// let todoss = [];
-// let todos;
-
-// Add Todo List
-// add.addEventListener("click", () => {
-//   id++;
-//   let todo = document.getElementById("todo");
-//   let inputTodo = document.getElementById("input").value;
-
-//   // Try
-//   // let todocontent = todo.innerHTML = inputTodo
-
-//   todo.innerHTML += check + id + ". " + inputTodo + "<br>";
-//   todoss.push(id, inputTodo);
-//   JSON.stringify(localStorage.setItem("data", content));
-
-//   console.log(todo);
-//   return todoss;
-// });
-
-// let todos = JSON.parse(localStorage.getItem("data"));
-
-// todo.innerHTML = todos;
-// console.log(todos);
-
-// Clear Todo List
-// clear.addEventListener("click", () => {
-//   let checkid = document.getElementById("checkid");
-//   if (checkid === true) {
-//     console.log("Hi");
-//   } else {
-//     console.log(todoss);
-//   }
-// });
-
-// let func1 = () => {
-//   return (fun3 = () => {
-//     nam2 = "test2";
-//     nam1 = "test";
-//   });
-
-//   // return nam1, nam2;
-// };
-// let func2 = () => {
-//   func1();
-//   console.log(nam1 + " Maxim " + nam2);
-// };
-// func2();
+let callData = () => {
+  content.innerHTML = localStorage.getItem("data");
+};
+callData();
