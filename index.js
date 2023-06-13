@@ -20,8 +20,8 @@ let footerdata = () => {
       <input id="input" onkeypress="enterbutton(event)" type="text"  />
     </div>
     <div class="buttons">
-      <button id="add" onclick="addTodo()" class="add">Add Todo</button>
       <button id="clear" onclick="clearTodo()" class="clear">Clear Completed</button>
+      <button id="add" onclick="addTodo()" class="add">Add Todo</button>
     </div>
     <span ><span id="left">0</span> left</span>
   </div>
@@ -31,6 +31,7 @@ footerdata();
 
 let content = document.getElementById("container");
 let input = document.getElementById("input");
+let left = document.getElementById("left");
 let incrimentId = 0;
 
 let addTodo = () => {
@@ -58,6 +59,7 @@ let addTodo = () => {
     console.log(check);
   }
   input.value = "";
+  leftTodo();
   saveData();
 };
 
@@ -75,14 +77,25 @@ let clearTodo = () => {
       check[i].parentElement.remove();
     }
   }
+  leftTodo();
   saveData();
 };
 
+// Left Todo
+let leftTodo = () => {
+  let check = document.querySelectorAll(".checkbox");
+  left.innerHTML = check.length;
+  saveData();
+};
+// leftTodo();
+
 let saveData = () => {
   localStorage.setItem("data", content.innerHTML);
+  localStorage.setItem("leftdata", left.innerHTML);
 };
 
 let callData = () => {
   content.innerHTML = localStorage.getItem("data");
+  left.innerHTML = localStorage.getItem("leftdata");
 };
 callData();
